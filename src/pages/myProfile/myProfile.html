@@ -8,40 +8,38 @@
  <ion-card>
   <ion-card-content>
     <!-- Add card content here! -->
-    <h1>Name</h1>
-    <h3>20</h3>
+    <h1>{{ name }}</h1>
+    <h3>{{ age }}</h3>
     <br>
-    <h3>"Down with that sort of thing"</h3>
+    <h3>"{{ blurb }}"</h3>
     <br>
     Likes
     <br>
-    <button ion-button>like</button>
-    <button ion-button>like</button>
-    <button ion-button>like</button>
+    <button ion-button *ngFor="let like of likes">
+      {{ like }}
+    </button>
 
     <br>
     Dislikes
 
     <br>
-    <button ion-button>dislike</button>
-    <button ion-button>dislike</button>
-    <button ion-button>dislike</button>
-
+    <button ion-button *ngFor="let dislike of dislikes">
+      {{ dislike }}
+    </button>
     <br>
     Hobbies
 
     <br>
-    <button ion-button>hobby</button>
-    <button ion-button>hobby</button>
-    <button ion-button>hobby</button>
-
+    <button ion-button *ngFor="let hobby of hobbies">
+      {{ hobby }}
+    </button>
     <br>
     Hangouts
 
     <br>
-    <button ion-button>place</button>
-    <button ion-button>place</button>
-    <button ion-button>place</button>
+    <button ion-button *ngFor="let place of places">
+      {{ place }}
+    </button>
   </ion-card-content>
 
 </ion-card>
