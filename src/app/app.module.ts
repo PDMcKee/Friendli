@@ -8,7 +8,7 @@ import { MatchesPage } from '../pages/matches/matches';
 import { SettingsPage } from '../pages/settings/settings';
 import { TabsPage } from '../pages/tabs/tabs';
 import { myProfile, NamePage, AgePage, LikePage, DislikePage, HobbyPage, HangoutPage, createdProfile } from '../pages/myProfile/myProfile';
-
+import { ProfileService } from '../pages/myProfile/ProfileService'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -47,12 +47,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     DislikePage,
     HobbyPage,
     HangoutPage,
-    createdProfile
+    createdProfile,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    [ProfileService]
   ]
 })
 export class AppModule {}
