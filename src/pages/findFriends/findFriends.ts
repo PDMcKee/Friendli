@@ -6,7 +6,13 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'findFriends.html'
 })
 export class findFriends {
-
+  name = "Ryan";
+  age = "22";
+  blurb = "Friendli is cool";
+  likes = this.likes;
+  dislikes = this.dislikes;
+  hobbies = this.hobbies;
+  places = this.places;
   constructor(public navCtrl: NavController) {
 
   }

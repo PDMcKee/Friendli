@@ -1,37 +1,20 @@
-page-findFriends {
-
-.background-grey {
-  background-color: #F7F7F7;
-}
-
-.td-title {
-  position: absolute;
-  top: 70px;
-  width: 100%;
-  text-align: center;
-}
-
-.td-title span {
-  font-weight: bold;
-}
-
-ion-card {
+/* CORE */
+td-cards {
   display: block;
 }
 
-ion-card-content {
+td-card {
   position: absolute;
   top: calc(50% - 150px);
   left: calc(50% - 150px);
   width: 300px;
-  height: 360px;
+  height: 300px;
   box-shadow: 0px 1px 10px rgba(0,0,0,0.5);
   border-radius: 3px;
-  background-color: #D9FFFF;
-  font-weight: bold;
+  background-color: transparent;
 }
 
-ion-card-content img {
+td-card img {
   max-width: 100%;
   border-radius: 4px;
 }
@@ -77,12 +60,24 @@ td-card#end-card {
   font-size: 100px;
 }
 
-
 .fade {
   -webkit-transition: 0.2s opacity linear;
   transition: 0.2s opacity linear;
   opacity: 0;
 }
 
+/* DEMO */
+.background-grey {
+  background-color: #F7F7F7;
+}
 
+.td-title {
+  position: absolute;
+  top: 70px;
+  width: 100%;
+  text-align: center;
+}
+
+.td-title span {
+  font-weight: bold;
 }
