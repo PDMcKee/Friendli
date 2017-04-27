@@ -9,10 +9,10 @@ export class findFriends {
   name = "Ryan";
   age = "22";
   blurb = "Friendli is cool";
-  likes = this.likes;
-  dislikes = this.dislikes;
-  hobbies = this.hobbies;
-  places = this.places;
+  likes = ["like", "like"];
+  dislikes = ["dislike", "dislike"];
+  hobbies = ["hobby", "hobby"];
+  places = ["place", "place"]
   constructor(public navCtrl: NavController) {
 
   }
