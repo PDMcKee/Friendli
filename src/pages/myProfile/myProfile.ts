@@ -103,7 +103,6 @@ export class NamePage {
   <ion-content> 
   
     <button ion-button (click)="getName()">Back</button>
-    {{ this.pService.Name }}
     <h1>How old are you?</h1>
     <ion-item>
        <ion-input type="text" placeholder="Age" [(ngModel)]="age"></ion-input>
