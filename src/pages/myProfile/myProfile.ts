@@ -34,8 +34,10 @@ export class createdProfile{
 
     template: `
     <ion-content>
+    <div align="center">
       <h1>Welcome to Friendli!</h1>
       <button ion-button outline=true color="primary" (click)="createAccount()">Create an account</button>
+      </div>
      </ion-content>
     `
 })
@@ -70,7 +72,7 @@ import { NavParams } from 'ionic-angular';
     <h1>What is your name?</h1>
     <ion-item>
        <ion-input type="text" placeholder="Name" [(ngModel)]="name"></ion-input>
-       
+       {{ this.name }}
     </ion-item>
     <button ion-button outline=true (click)="getAge()">Next</button>
     </ion-content>`
@@ -101,7 +103,6 @@ export class NamePage {
     </ion-navbar>
   </ion-header>
   <ion-content> 
-  
     <button ion-button outline=true color="danger" (click)="getName()">Back</button>
     <h1>How old are you?</h1>
     <ion-item>

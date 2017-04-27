@@ -31,32 +31,34 @@
         <div class="image" ng-controller="CardCtrl">
           <div class="no-text"><i class="icon ion-thumbsdown"></i></div>
           <div class="yes-text"><i class="icon ion-thumbsup"></i></div>
+          <div align="center">
           <h1>{{name}}</h1>
           <h3>{{age}}</h3>
           <br>
           <h3>"{{blurb}}"</h3>
+          </div>
           <br> Likes
           <br>
-          <button ion-button *ngFor="let like of likes">
+          <button ion-button clear=true color="good" *ngFor="let like of likes">
       {{ like }}
     </button>
 
           <br> Dislikes
 
           <br>
-          <button ion-button *ngFor="let dislike of dislikes">
+          <button ion-button clear=true color="danger" *ngFor="let dislike of dislikes">
       {{ dislike }}
     </button>
           <br> Hobbies
 
           <br>
-          <button ion-button *ngFor="let hobby of hobbies">
+          <button ion-button clear=true color="primary" *ngFor="let hobby of hobbies">
       {{ hobby }}
     </button>
           <br> Hangouts
 
           <br>
-          <button ion-button *ngFor="let place of places">
+          <button ion-button clear=true color="secondary" *ngFor="let place of places">
       {{ place }}
     </button>
     <br>
