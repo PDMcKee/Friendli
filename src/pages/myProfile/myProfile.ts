@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, ViewController, App } from 'ionic-angular';
-import { ModalController } from 'ionic-angular';
-import { ModalPage } from './modal-page';
-
-
-
+import { ProfileService } from '../../pages/myProfile/ProfileService';
 
 @Component({
   selector: 'page-createdProfile',
@@ -12,13 +8,22 @@ import { ModalPage } from './modal-page';
 })
 
 export class createdProfile{
-  name = "Pamela";
-  //age = age;
+
+  constructor(
+    public navCtrl: NavController,
+    public viewCtrl: ViewController,
+    public appCtrl: App,
+    public pService: ProfileService){
+
+    }
+
+  name = this.pService.Name;
+  age = this.pService.Age;
   blurb = "Down with that sort of thing";
-  //likes = likes;
-  //dislikes = dislikes;
-  //hobbies = hobbies;
-  //places = places;
+  likes = this.pService.Likes;
+  dislikes = this.pService.Dislikes;
+  hobbies = this.pService.Hobbies;
+  places = this.pService.Places;
 }
 
 
@@ -37,8 +42,6 @@ export class createdProfile{
 export class myProfile {
 
   template;
-  
-
     
   constructor(
     public navCtrl: NavController,
@@ -74,18 +77,16 @@ import { NavParams } from 'ionic-angular';
 export class NamePage {
 
   public name: String;
-  age: Number;
-  likes: Array<String>;
-  dislikes: Array<String>;
-  hobbies: Array<String>;
-  places: Array<String>;
+
   constructor(private navParams: NavParams, public navCtrl: NavController,
     public viewCtrl: ViewController,
-    public appCtrl: App) {
+    public appCtrl: App,
+    public pService: ProfileService) {
      
   }
 
   getAge(){
+    this.pService.setName(this.name);
     this.viewCtrl.dismiss().catch(() => console.log('view was not dismissed'));
     this.appCtrl.getRootNav().push(AgePage, name);
   }
@@ -101,7 +102,7 @@ export class NamePage {
   <ion-content> 
   
     <button ion-button (click)="getName()">Back</button>
-    {{ name }}
+    {{ this.pService.Name }}
     <h1>How old are you?</h1>
     <ion-item>
        <ion-input type="text" placeholder="Age" [(ngModel)]="age"></ion-input>
@@ -110,26 +111,24 @@ export class NamePage {
     </ion-content>`
 })
 export class AgePage {
-  name: String;
-  age: Number;
-  likes: Array<String>;
-  dislikes: Array<String>;
-  hobbies: Array<String>;
-  places: Array<String>;
+  public age: Number;
 
-
-  constructor(private navParams: NavParams, public navCtrl: NavController,
+  constructor(private navParams: NavParams, 
+  public navCtrl: NavController,
     public viewCtrl: ViewController,
-    public appCtrl: App) {
+    public appCtrl: App,
+    public pService: ProfileService) {
      
   }
 
   getLikes(){
+    this.pService.setAge(this.age);
     this.viewCtrl.dismiss().catch(() => console.log('view was not dismissed'));;
     this.appCtrl.getRootNav().push(LikePage);
   }
 
     getName(){
+    this.pService.setAge(this.age);
     this.viewCtrl.dismiss().catch(() => console.log('view was not dismissed'));;
     this.appCtrl.getRootNav().push(NamePage);
   }
@@ -170,13 +169,6 @@ export class LikePage {
   public Likes: Array<String>;
   public Like: String;
 
-  name: String;
-  age: Number;
-  dislikes: Array<String>;
-  hobbies: Array<String>;
-  places: Array<String>;
-
-
     onPageDidEnter() {
         this.Likes = JSON.parse(localStorage.getItem("likes"));
         if(!this.Likes) {
@@ -193,7 +185,7 @@ export class LikePage {
     }
 
   constructor(private navParams: NavParams, public navCtrl: NavController,
-    public viewCtrl: ViewController,
+    public viewCtrl: ViewController, public pService: ProfileService,
     public appCtrl: App) {
     this.Likes = JSON.parse(localStorage.getItem("like"));
         if(!this.Likes) {
@@ -211,11 +203,13 @@ export class LikePage {
     }
 
   getDislikes(){
+    this.pService.setLikes(this.Likes);
     this.viewCtrl.dismiss().catch(() => console.log('view was not dismissed'));;
     this.appCtrl.getRootNav().push(DislikePage);
   }
 
   getAge(){
+    this.pService.setLikes(this.Likes);
     this.viewCtrl.dismiss().catch(() => console.log('view was not dismissed'));;
     this.appCtrl.getRootNav().push(LikePage);
   }
@@ -256,12 +250,6 @@ export class DislikePage {
   public Dislikes: Array<String>;
   public Dislike: String;
 
-  name: String;
-  age: Number;
-  likes: Array<String>;
-  hobbies: Array<String>;
-  places: Array<String>;
-
     onPageDidEnter() {
         this.Dislikes = JSON.parse(localStorage.getItem("dislikes"));
         if(!this.Dislikes) {
@@ -279,7 +267,7 @@ export class DislikePage {
 
   constructor(private navParams: NavParams, public navCtrl: NavController,
     public viewCtrl: ViewController,
-    public appCtrl: App) {
+    public appCtrl: App, public pService: ProfileService) {
     this.Dislikes = JSON.parse(localStorage.getItem("dislike"));
         if(!this.Dislikes) {
             this.Dislikes = [];
@@ -296,11 +284,13 @@ export class DislikePage {
     }
 
   getLikes(){
+    this.pService.setDislikes(this.Dislikes);
     this.viewCtrl.dismiss().catch(() => console.log('view was not dismissed'));;
     this.appCtrl.getRootNav().push(LikePage);
   }
 
   getHobbies(){
+    this.pService.setDislikes(this.Dislikes);
     this.viewCtrl.dismiss().catch(() => console.log('view was not dismissed'));;
     this.appCtrl.getRootNav().push(HobbyPage);
   }
@@ -340,11 +330,6 @@ export class DislikePage {
 export class HobbyPage {
   public Hobbies: Array<String>;
   public Hobby: String;
-  name: String;
-  age: Number;
-  likes: Array<String>;
-  dislikes: Array<String>;
-  places: Array<String>;
 
     onPageDidEnter() {
         this.Hobbies = JSON.parse(localStorage.getItem("hobbies"));
@@ -363,7 +348,7 @@ export class HobbyPage {
 
   constructor(private navParams: NavParams, public navCtrl: NavController,
     public viewCtrl: ViewController,
-    public appCtrl: App) {
+    public appCtrl: App, public pService: ProfileService) {
     this.Hobbies = JSON.parse(localStorage.getItem("hobby"));
         if(!this.Hobbies) {
             this.Hobbies = [];
@@ -380,11 +365,13 @@ export class HobbyPage {
     }
 
   getDislikes(){
+    this.pService.setHobbies(this.Hobbies);
     this.viewCtrl.dismiss().catch(() => console.log('view was not dismissed'));;
     this.appCtrl.getRootNav().push(DislikePage);
   }
 
   getHangouts(){
+    this.pService.setHobbies(this.Hobbies);
     this.viewCtrl.dismiss().catch(() => console.log('view was not dismissed'));;
     this.appCtrl.getRootNav().push(HangoutPage);
   }
@@ -397,11 +384,11 @@ export class HobbyPage {
       <ion-title>Friendli</ion-title>
     </ion-navbar>
   </ion-header>
-  <ion-content class="hangouts">
-  <button ion-button (click)="getPlaces()">Back</button>
+  <ion-content class="places">
+  <button ion-button (click)="getHobbies()">Back</button>
   <h2>Where do you like to hang out?</h2>
     <ion-item>
-     <ion-input type="text" placeholder="Center of the Universe" [(ngModel)]="Hangout"></ion-input>
+     <ion-input type="text" placeholder="Center of the Universe" [(ngModel)]="Place"></ion-input>
   </ion-item>
    <button ion-button (click)="save()"><ion-icon name="add"></ion-icon></button>
     <ion-list>
@@ -417,18 +404,13 @@ export class HobbyPage {
             </ion-item-options>
         </ion-item-sliding>
     </ion-list>
-    <button ion-button (click)="getAge()">Complete Profile</button>
+    <button ion-button (click)="createProfile()">Complete Profile</button>
 </ion-content>`
 })
 
 export class HangoutPage {
   public Places: Array<String>;
   public Place: String;
-  name: String;
-  age: Number;
-  likes: Array<String>;
-  dislikes: Array<String>;
-  hobbies: Array<String>;
 
     onPageDidEnter() {
         this.Places = JSON.parse(localStorage.getItem("places"));
@@ -447,7 +429,7 @@ export class HangoutPage {
 
   constructor(private navParams: NavParams, public navCtrl: NavController,
     public viewCtrl: ViewController,
-    public appCtrl: App) {
+    public appCtrl: App, public pService: ProfileService) {
     this.Places = JSON.parse(localStorage.getItem("place"));
         if(!this.Places) {
             this.Places = [];
@@ -464,11 +446,13 @@ export class HangoutPage {
     }
 
   getHobbies(){
+    this.pService.setPlaces(this.Places);
     this.viewCtrl.dismiss().catch(() => console.log('view was not dismissed'));;
     this.appCtrl.getRootNav().push(HobbyPage);
   }
 
-  getAge(){
+  createProfile(){
+    this.pService.setPlaces(this.Places);
     this.viewCtrl.dismiss().catch(() => console.log('view was not dismissed'));;
     this.appCtrl.getRootNav().push(createdProfile);
   }
