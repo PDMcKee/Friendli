@@ -14,9 +14,10 @@ export class createdProfile{
     public viewCtrl: ViewController,
     public appCtrl: App,
     public pService: ProfileService){
-
+      if (this.pService.Name == null)
+        this.appCtrl.getRootNav().push(myProfile);
     }
-
+    
   name = this.pService.Name;
   age = this.pService.Age;
   blurb = "Down with that sort of thing";
@@ -24,12 +25,12 @@ export class createdProfile{
   dislikes = this.pService.Dislikes;
   hobbies = this.pService.Hobbies;
   places = this.pService.Places;
+
 }
 
 
 @Component({
   selector: 'page-myProfile',
-  templateUrl: 'myProfile.html',
 
     template: `
     <ion-content>
@@ -454,6 +455,5 @@ export class HangoutPage {
   createProfile(){
     this.pService.setPlaces(this.Places);
     this.viewCtrl.dismiss().catch(() => console.log('view was not dismissed'));;
-    this.appCtrl.getRootNav().push(createdProfile);
   }
 }

@@ -10,7 +10,7 @@ import { SettingsPage } from '../settings/settings';
 })
 export class TabsPage {
 
-  tab1Root = myProfile;
+  tab1Root = createdProfile;
   tab2Root = MatchesPage;
   tab3Root = findFriends;
   tab4Root = SettingsPage;
