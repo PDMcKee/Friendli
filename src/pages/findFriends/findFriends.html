@@ -1,11 +1,108 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+  <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+  <script src="http://code.ionicframework.com/collide/0.0.4/collide.js"></script>
+  <script src="http://www.loringdodge.com/files/ionic.tdcards2.js"></script>
+  <script src="findFriends.js"></script>
+</head>
+
+
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Find Friends
-    </ion-title>
+    <ion-title>Find Friends</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<body ng-app="starter" no-scroll>
+  <ion-content ng-controller="CardsCtrl" class="background-grey">
 
-</ion-content>
+
+    <!-- *************************
+        Ion Cards
+      ************************* -->
+    <ion-card on-swipe-right="cardSwipedRight($index)" on-swipe-left="cardSwipedLeft($index)" ng-repeat="card in cards.active"
+      on-destroy="cardDestroyed($index)">
+      <ion-card-content on-swipe-right="cardSwipedRight($index)" on-swipe-left="cardSwipedLeft($index)" ng-repeat="card in cards.active"
+        on-destroy="cardDestroyed($index)">
+        <div class="image" ng-controller="CardCtrl">
+          <div class="no-text"><i class="icon ion-thumbsdown"></i></div>
+          <div class="yes-text"><i class="icon ion-thumbsup"></i></div>
+          <h1>{{name}}</h1>
+          <h3>{{age}}</h3>
+          <br>
+          <h3>"{{blurb}}"</h3>
+          <br> Likes
+          <br>
+          <button ion-button *ngFor="let like of likes">
+      {{ likes }}
+    </button>
+
+          <br> Dislikes
+
+          <br>
+          <button ion-button *ngFor="let dislike of dislikes">
+      {{ dislike }}
+    </button>
+          <br> Hobbies
+
+          <br>
+          <button ion-button *ngFor="let hobby of hobbies">
+      {{ hobby }}
+    </button>
+          <br> Hangouts
+
+          <br>
+          <button ion-button *ngFor="let place of places">
+      {{ place }}
+    </button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+
+  <!--Card 2-->
+  <ion-content ng-controller="CardsCtrl" class="background-grey">
+    <ion-card on-swipe-right="cardSwipedRight($index)" on-swipe-left="cardSwipedLeft($index)" ng-repeat="card in cards.active"
+      on-destroy="cardDestroyed($index)">
+      <ion-card-content on-swipe-right="cardSwipedRight($index)" on-swipe-left="cardSwipedLeft($index)" ng-repeat="card in cards.active"
+        on-destroy="cardDestroyed($index)">
+        <div class="image" ng-controller="CardCtrl">
+          <div class="no-text"><i class="icon ion-thumbsdown"></i></div>
+          <div class="yes-text"><i class="icon ion-thumbsup"></i></div>
+          <h1>Person 2</h1>
+          <h3>26</h3>
+          <br>
+          <h3>"Living my life"</h3>
+          <br> Likes
+          <br>
+          <button ion-button *ngFor="let like of likes">
+      {{ likes }}
+    </button>
+
+          <br> Dislikes
+          <br>
+          <button ion-button *ngFor="let dislike of dislikes">
+      {{ dislike }}
+    </button>
+          <br> Hobbies
+          <br>
+          <button ion-button *ngFor="let hobby of hobbies">
+      {{ hobby }}
+    </button>
+          <br> Hangouts
+          <br>
+          <button ion-button *ngFor="let place of places">
+      {{ place }}
+    </button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-content>
+</body>
+
+</html>
