@@ -14,7 +14,7 @@ export class createdProfile{
     public viewCtrl: ViewController,
     public appCtrl: App,
     public pService: ProfileService){
-      if (this.pService.Name == null)
+    if (this.pService.Name == null)
         this.appCtrl.getRootNav().push(myProfile);
     }
     
