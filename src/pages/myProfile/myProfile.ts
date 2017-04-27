@@ -35,7 +35,7 @@ export class createdProfile{
     template: `
     <ion-content>
       <h1>Welcome to Friendli!</h1>
-      <button ion-button (click)="createAccount()">Create an account</button>
+      <button ion-button outline=true color="primary" (click)="createAccount()">Create an account</button>
      </ion-content>
     `
 })
@@ -72,7 +72,7 @@ import { NavParams } from 'ionic-angular';
        <ion-input type="text" placeholder="Name" [(ngModel)]="name"></ion-input>
        
     </ion-item>
-    <button ion-button (click)="getAge()">Next</button>
+    <button ion-button outline=true (click)="getAge()">Next</button>
     </ion-content>`
 })
 export class NamePage {
@@ -102,12 +102,12 @@ export class NamePage {
   </ion-header>
   <ion-content> 
   
-    <button ion-button (click)="getName()">Back</button>
+    <button ion-button outline=true color="danger" (click)="getName()">Back</button>
     <h1>How old are you?</h1>
     <ion-item>
        <ion-input type="text" placeholder="Age" [(ngModel)]="age"></ion-input>
     </ion-item>
-    <button ion-button (click)="getLikes()">Next</button>
+    <button ion-button outline=true color="good" (click)="getLikes()">Next</button>
     </ion-content>`
 })
 export class AgePage {
@@ -143,26 +143,26 @@ export class AgePage {
     </ion-navbar>
   </ion-header>
   <ion-content class="Likes">
-  <button ion-button (click)="getAge()">Back</button>
+  <button ion-button outline=true color="danger" (click)="getAge()">Back</button>
   <h2>What do you like?</h2>
     <ion-item>
      <ion-input type="text" placeholder="The Office" [(ngModel)]="Like"></ion-input>
   </ion-item>
-   <button ion-button (click)="save()"><ion-icon name="add"></ion-icon></button>
+   <button ion-button clear=true color="good" (click)="save()"><ion-icon name="add"></ion-icon></button>
     <ion-list>
         <ion-item-sliding *ngFor="let like of Likes; let i = index">
             <ion-item>
                 <h2>{{ like }}</h2>
             </ion-item>
             <ion-item-options>
-                <button danger (click)="delete(i)">
+                <button ion-button danger color="danger" (click)="delete(i)">
                     <ion-icon name="trash"></ion-icon>
                     Delete
                 </button>
             </ion-item-options>
         </ion-item-sliding>
     </ion-list>
-    <button ion-button (click)="getDislikes()">Next</button>
+    <button ion-button outline=true color="secondary" (click)="getDislikes()">Next</button>
 </ion-content>`
 })
 export class LikePage {
@@ -223,26 +223,26 @@ export class LikePage {
     </ion-navbar>
   </ion-header>
   <ion-content class="Likes">
-  <button ion-button (click)="getLikes()">Back</button>
+  <button ion-button outline=true color="danger" (click)="getLikes()">Back</button>
   <h2>What do you dislike?</h2>
     <ion-item>
      <ion-input type="text" placeholder="Puppies" [(ngModel)]="Dislike"></ion-input>
   </ion-item>
-   <button ion-button (click)="save()"><ion-icon name="add"></ion-icon></button>
+   <button ion-button clear=true color="good" (click)="save()"><ion-icon name="add"></ion-icon></button>
     <ion-list>
         <ion-item-sliding *ngFor="let dislike of Dislikes; let i = index">
             <ion-item>
                 <h2>{{ dislike }}</h2>
             </ion-item>
             <ion-item-options>
-                <button danger (click)="delete(i)">
+                <button ion-button danger color="danger" (click)="delete(i)">
                     <ion-icon name="trash"></ion-icon>
                     Delete
                 </button>
             </ion-item-options>
         </ion-item-sliding>
     </ion-list>
-    <button ion-button (click)="getHobbies()">Next</button>
+    <button ion-button outline=true (click)="getHobbies()">Next</button>
 </ion-content>`
 })
 
@@ -304,26 +304,26 @@ export class DislikePage {
     </ion-navbar>
   </ion-header>
   <ion-content class="Hobbies">
-  <button ion-button (click)="getDislikes()">Back</button>
+  <button ion-button outline=true color="danger" (click)="getDislikes()">Back</button>
   <h2>Do you have any hobbies?</h2>
     <ion-item>
      <ion-input type="text" placeholder="Watching Netflix" [(ngModel)]="Hobby"></ion-input>
   </ion-item>
-   <button ion-button (click)="save()"><ion-icon name="add"></ion-icon></button>
+   <button ion-button clear=true color="good" (click)="save()"><ion-icon name="add"></ion-icon></button>
     <ion-list>
         <ion-item-sliding *ngFor="let hobby of Hobbies; let i = index">
             <ion-item>
                 <h2>{{ hobby }}</h2>
             </ion-item>
             <ion-item-options>
-                <button danger (click)="delete(i)">
+                <button ion-button danger color="danger" (click)="delete(i)">
                     <ion-icon name="trash"></ion-icon>
                     Delete
                 </button>
             </ion-item-options>
         </ion-item-sliding>
     </ion-list>
-    <button ion-button (click)="getHangouts()">Next</button>
+    <button ion-button outline=true color="good" (click)="getHangouts()">Next</button>
 </ion-content>`
 })
 
@@ -385,26 +385,26 @@ export class HobbyPage {
     </ion-navbar>
   </ion-header>
   <ion-content class="places">
-  <button ion-button (click)="getHobbies()">Back</button>
+  <button ion-button outline=true color="danger"(click)="getHobbies()">Back</button>
   <h2>Where do you like to hang out?</h2>
     <ion-item>
      <ion-input type="text" placeholder="Center of the Universe" [(ngModel)]="Place"></ion-input>
   </ion-item>
-   <button ion-button (click)="save()"><ion-icon name="add"></ion-icon></button>
+   <button ion-button clear=true color="good" (click)="save()"><ion-icon name="add"></ion-icon></button>
     <ion-list>
         <ion-item-sliding *ngFor="let place of Places; let i = index">
             <ion-item>
                 <h2>{{ place }}</h2>
             </ion-item>
             <ion-item-options>
-                <button danger (click)="delete(i)">
+                <button ion-button danger color="danger" (click)="delete(i)">
                     <ion-icon name="trash"></ion-icon>
                     Delete
                 </button>
             </ion-item-options>
         </ion-item-sliding>
     </ion-list>
-    <button ion-button (click)="createProfile()">Complete Profile</button>
+    <button ion-button color="secondary" (click)="createProfile()">Complete Profile</button>
 </ion-content>`
 })
 

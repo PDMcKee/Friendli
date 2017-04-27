@@ -15,31 +15,36 @@
     <br>
     <h3>"{{ blurb }}"</h3>
     <br>
+    <b>
     Likes
+    </b>
     <br>
-    <button ion-button *ngFor="let like of likes">
+    <button ion-button clear=true color="good" *ngFor="let like of likes">
       {{ like }}
     </button>
 
     <br>
+    <b>
     Dislikes
-
+    </b>
     <br>
-    <button ion-button *ngFor="let dislike of dislikes">
+    <button ion-button clear=true color="danger" *ngFor="let dislike of dislikes">
       {{ dislike }}
     </button>
     <br>
+    <b>
     Hobbies
-
+    </b>
     <br>
-    <button ion-button *ngFor="let hobby of hobbies">
+    <button ion-button clear=true color="primary" *ngFor="let hobby of hobbies">
       {{ hobby }}
     </button>
     <br>
+    <b>
     Hangouts
-
+    </b>
     <br>
-    <button ion-button *ngFor="let place of places">
+    <button ion-button clear=true color="secondary" *ngFor="let place of places">
       {{ place }}
     </button>
   </ion-card-content>
