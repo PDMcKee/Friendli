@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { myProfile } from '../myProfile/myProfile';
+import { myProfile, NamePage, AgePage, createdProfile } from '../myProfile/myProfile';
 import { MatchesPage } from '../matches/matches';
 import { findFriends } from '../findFriends/findFriends';
 import { SettingsPage } from '../settings/settings';

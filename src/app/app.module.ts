@@ -5,9 +5,9 @@ import { Friendli } from './app.component';
 
 import { findFriends } from '../pages/findFriends/findFriends';
 import { MatchesPage } from '../pages/matches/matches';
-import { myProfile } from '../pages/myProfile/myProfile';
 import { SettingsPage } from '../pages/settings/settings';
 import { TabsPage } from '../pages/tabs/tabs';
+import { myProfile, NamePage, AgePage, LikePage, DislikePage, HobbyPage, HangoutPage, createdProfile } from '../pages/myProfile/myProfile';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,7 +19,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     myProfile,
     MatchesPage,
     SettingsPage,
-    TabsPage
+    TabsPage,
+    NamePage,
+    AgePage,
+    LikePage,
+    DislikePage,
+    HobbyPage,
+    HangoutPage,
+    createdProfile
+
   ],
   imports: [
     BrowserModule,
@@ -32,7 +40,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MatchesPage,
     myProfile,
     SettingsPage,
-    TabsPage
+    TabsPage,
+    NamePage,
+    AgePage,
+    LikePage,
+    DislikePage,
+    HobbyPage,
+    HangoutPage,
+    createdProfile
   ],
   providers: [
     StatusBar,
